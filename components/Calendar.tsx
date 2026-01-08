@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { RecordMap, Currency } from '../types';
+import { RecordMap, Currency } from '../types.ts';
 
 interface CalendarProps {
   currentDate: Date;
@@ -19,18 +20,14 @@ export const Calendar: React.FC<CalendarProps> = ({
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
-  // Get first day of the month and number of days
   const firstDay = new Date(year, month, 1);
-  const startingDayOfWeek = firstDay.getDay(); // 0 (Sun) to 6 (Sat)
+  const startingDayOfWeek = firstDay.getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  // Generate calendar days
   const calendarDays = [];
-  // Pad empty days at start
   for (let i = 0; i < startingDayOfWeek; i++) {
     calendarDays.push(null);
   }
-  // Fill actual days
   for (let i = 1; i <= daysInMonth; i++) {
     calendarDays.push(i);
   }
@@ -50,7 +47,6 @@ export const Calendar: React.FC<CalendarProps> = ({
     "七月", "八月", "九月", "十月", "十一月", "十二月"
   ];
 
-  // Calculate monthly total
   const monthlyTotal = Object.entries(records).reduce((sum, [date, record]) => {
     const [rYear, rMonth] = date.split('-').map(Number);
     if (rYear === year && rMonth === month + 1) {
@@ -61,7 +57,6 @@ export const Calendar: React.FC<CalendarProps> = ({
 
   return (
     <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 ring-1 ring-slate-900/5 max-w-md w-full mx-auto">
-      {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white">
         <div className="flex justify-between items-center mb-4">
           <button 
@@ -86,9 +81,7 @@ export const Calendar: React.FC<CalendarProps> = ({
         </div>
       </div>
 
-      {/* Grid */}
       <div className="p-4">
-        {/* Weekday Headers */}
         <div className="grid grid-cols-7 mb-2 text-center">
           {['日', '一', '二', '三', '四', '五', '六'].map((d, i) => (
             <div key={i} className={`text-xs font-bold ${i === 0 || i === 6 ? 'text-rose-500' : 'text-slate-400'}`}>
@@ -97,7 +90,6 @@ export const Calendar: React.FC<CalendarProps> = ({
           ))}
         </div>
 
-        {/* Days */}
         <div className="grid grid-cols-7 gap-1">
           {calendarDays.map((day, index) => {
             if (day === null) {

@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { Currency, RecordMap, DailyRecord, SalaryInputs } from './types';
-import { Calendar } from './components/Calendar';
-import { DailyEditor } from './components/DailyEditor';
-import { QuickCalculator } from './components/QuickCalculator';
+import { Currency, RecordMap, DailyRecord, SalaryInputs } from './types.ts';
+import { Calendar } from './components/Calendar.tsx';
+import { DailyEditor } from './components/DailyEditor.tsx';
+import { QuickCalculator } from './components/QuickCalculator.tsx';
 
 const App: React.FC = () => {
   // --- State ---
@@ -79,7 +79,6 @@ const App: React.FC = () => {
     }
   };
 
-  // Fix: Added handleBack to clear the selected date and return to the main view
   const handleBack = () => {
     setSelectedDate(null);
   };

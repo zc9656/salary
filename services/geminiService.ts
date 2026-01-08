@@ -1,5 +1,6 @@
+
 import { GoogleGenAI } from "@google/genai";
-import { SalaryInputs, Currency, SalaryBreakdown } from "../types";
+import { SalaryInputs, Currency, SalaryBreakdown } from "../types.ts";
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 

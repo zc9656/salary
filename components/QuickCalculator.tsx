@@ -1,8 +1,8 @@
 
 import React, { useState, useMemo } from 'react';
-import { Currency, SalaryInputs } from '../types';
-import { InputGroup } from './InputGroup';
-import { generateSalaryInsights } from '../services/geminiService';
+import { Currency, SalaryInputs } from '../types.ts';
+import { InputGroup } from './InputGroup.tsx';
+import { generateSalaryInsights } from '../services/geminiService.ts';
 
 interface QuickCalculatorProps {
   currency: Currency;

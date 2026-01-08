@@ -1,6 +1,7 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Currency, SalaryInputs, DailyRecord } from '../types';
-import { InputGroup } from './InputGroup';
+
+import React, { useState, useMemo } from 'react';
+import { Currency, SalaryInputs, DailyRecord } from '../types.ts';
+import { InputGroup } from './InputGroup.tsx';
 
 interface DailyEditorProps {
   dateStr: string;
@@ -48,7 +49,6 @@ export const DailyEditor: React.FC<DailyEditorProps> = ({
 
   return (
     <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 ring-1 ring-slate-900/5 max-w-md w-full mx-auto">
-      {/* Header */}
       <div className="bg-white p-4 border-b border-slate-100 flex items-center justify-between">
         <button 
           onClick={onBack}
@@ -60,17 +60,15 @@ export const DailyEditor: React.FC<DailyEditorProps> = ({
         <div className="text-slate-800 font-bold">
             {dateStr}
         </div>
-        <div className="w-20"></div> {/* Spacer for center alignment */}
+        <div className="w-20"></div>
       </div>
 
       <div className="p-8 space-y-8">
-        {/* Top Banner */}
         <div className="text-center">
              <h2 className="text-2xl font-bold text-slate-800">編輯當日工時</h2>
              <p className="text-slate-500 text-sm mt-1">輸入您的時薪與工作時數</p>
         </div>
 
-        {/* Inputs */}
         <div className="space-y-6">
           <div className="flex justify-end">
              <select
@@ -103,7 +101,6 @@ export const DailyEditor: React.FC<DailyEditorProps> = ({
           />
         </div>
 
-        {/* Live Calculation */}
         <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 text-center">
             <p className="text-slate-500 text-sm font-medium mb-1">當日薪資預估</p>
             <div className="text-4xl font-black text-slate-900 tracking-tight my-2">
@@ -115,7 +112,6 @@ export const DailyEditor: React.FC<DailyEditorProps> = ({
             </p>
         </div>
 
-        {/* Actions */}
         <button
           onClick={handleSave}
           className="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all transform active:scale-[0.98]"
