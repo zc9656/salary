@@ -1,0 +1,5 @@
+{
+  "name": "簡易薪資計算 (Salary Calc)",
+  "description": "專為非固定工時設計的薪資計算器，輸入時薪與時數即可快速得出總薪資。",
+  "requestFramePermissions": []
+}
